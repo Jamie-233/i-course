@@ -1,5 +1,6 @@
-beiyao/node_modules
+beiyao/node_modules/
 beiyao/express-project/node_modules
+beiyao/mongodb/node_modules
 
 sam/zbestpc_update/node_modules
 sam/zbestpc_update/build
