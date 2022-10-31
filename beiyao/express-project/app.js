@@ -1,20 +1,25 @@
 const express = require('express');
+const cors = require('cors');
+const morgan = require('morgan');
 
 const router = require('./router');
-const router_video = require('./router/video');
 
 const app = express();
+
+app.use(cors());
+app.use(morgan('dev'));
 app.use(express.json());
+app.use(express.urlencoded());
+app.use('/api/v1', router);
 
-app.use('/lists', router);
-app.use('/videos', router_video);
-
-// /us?er
-// /us+er
-app.get('/us*er', (req, res) => {
-    
-    res.send(`${req.method}---${req.url}`);
-})
+// /us?er /us+er /us*er
+// app.get('/user/:id/video/:vid', (req, res) => {
+//     console.log(req.params);
+//     res.send(`${req.method}---${req.url}`);
+// }).post('/video', () => {
+//     console.log(req.params);
+//     res.send(`${req.method}---${req.url}`);
+// });
 
 const PORT = process.env.PORT || 3000;
 

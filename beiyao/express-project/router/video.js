@@ -1,10 +1,12 @@
-const express = require('express')
+const express = require('express');
 
-const router = express.Router()
+const video_controller = require('../controller/video-controller');
 
-router.get('/', (req, res) => {
-    console.log(req.method);
-    res.send('/video list');
-})
+const router = express.Router();
 
-module.exports = router
+router
+    .get('/list', video_controller.list)
+    .get('/list/:id', video_controller.list)
+    .delete('/list', video_controller.delete);
+
+module.exports = router;

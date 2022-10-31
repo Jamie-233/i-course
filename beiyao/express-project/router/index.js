@@ -2,9 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    console.log(req.method);
-    res.send('/index');
-})
+router.use('/user', require('./user'))
+router.use('/video', require('./video'))
 
 module.exports = router;
